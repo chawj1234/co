@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>내 영화 티어리스트</title>
+<style>
+:root{color-scheme:light;--paper:#f5f2eb;--ink:#292b28;--muted:#62635b;--accent:#974735;--line:#d3d0c5;--white:#fffefa}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"맑은 고딕",sans-serif;line-height:1.6}::selection{background:var(--accent);color:white}button,input{font:inherit}button{cursor:pointer}button,input{border:1px solid var(--line);border-radius:7px}button{background:var(--white);color:var(--ink);padding:9px 15px;min-height:44px}button:hover{border-color:var(--ink);background:#eae6dc}button:disabled{opacity:.5;cursor:not-allowed}button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}input{padding:11px 13px;background:var(--white);color:var(--ink);min-width:0;caret-color:var(--accent)}input::placeholder{color:var(--muted)}.shell{max-width:1400px;margin:auto;padding:56px 40px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:64px}header{position:sticky;top:40px;align-self:start}h1{font-family:Georgia,"Batang",serif;font-size:44px;letter-spacing:-.03em;line-height:1.18;margin:0 0 24px;font-weight:600;word-break:keep-all}h1 span{display:block;color:var(--accent)}header p{color:var(--muted);font-size:15px;max-width:32ch}header .rule{width:44px;height:3px;background:var(--accent);margin:28px 0}.reset{margin-top:26px;background:transparent}main{min-width:0}.topline{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:16px;margin-bottom:24px}h2{font-size:21px;margin:0;letter-spacing:-.02em}.count{color:var(--muted);font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums}.add-form{display:flex;gap:10px}.field{flex:1;min-width:0}label{display:block;font-size:14px;font-weight:650;margin-bottom:8px}.add-form input{width:100%}.add-form button{align-self:end;background:var(--ink);color:white;border-color:var(--ink)}.help{color:var(--muted);font-size:13px;margin:8px 0 20px}.move{padding:16px 0 20px;border-bottom:1px solid var(--line)}#selected{margin:0 0 10px;font-size:14px;overflow-wrap:anywhere}.actions{display:flex;gap:8px;flex-wrap:wrap}.actions button{min-width:48px}.status{min-height:26px;color:var(--accent);font-size:14px;margin:12px 0 16px}.tier{display:grid;grid-template-columns:88px minmax(0,1fr);border-bottom:1px solid var(--line);min-height:112px}.tier-heading{display:flex;flex-direction:column;justify-content:center;padding:18px 12px 18px 0}.tier-heading h3{font-family:Georgia,serif;font-size:34px;line-height:1;margin:0 0 6px}.tier-heading small{font-size:12px;color:var(--muted)}.cards{display:flex;gap:8px;flex-wrap:wrap;align-items:center;align-content:center;padding:18px 0 18px 16px;min-height:110px;min-width:0}.card{text-align:left;max-width:100%;overflow-wrap:anywhere;padding:12px 16px;border-radius:7px;background:var(--white);font-size:14px;font-weight:550;touch-action:manipulation}.card[aria-pressed=true]{background:var(--ink);color:white;border-color:var(--ink)}.empty{font-size:13px;color:var(--muted);margin:0}.tier.drag-over{background:#e6e2d6;outline:2px dashed var(--accent);outline-offset:-2px}.tier[data-tier=S] h3{color:var(--accent)}.tier[data-tier=U]{margin-top:24px;border-top:1px solid var(--ink)}.tier[data-tier=U] h3{font-family:inherit;font-size:17px;font-weight:700}.footer-note{font-size:12px;color:var(--muted);margin-top:24px}#save{color:var(--muted);font-size:13px} @media(max-width:950px){.shell{grid-template-columns:1fr;gap:32px;padding:32px 24px}header{position:static}h1{font-size:36px;margin-bottom:12px}h1 span{display:inline}header p{max-width:65ch}header .rule{display:none}.reset{margin-top:12px}header p:last-of-type{margin-bottom:0}}@media(max-width:480px){.shell{padding:28px 16px;gap:28px}h1{font-size:32px}.tier{grid-template-columns:62px minmax(0,1fr)}.cards{padding-left:8px}.card{padding:10px 12px}.topline{align-items:center}h2{font-size:19px}.add-form{gap:8px}.add-form button{padding-inline:12px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header><h1>내 영화<br><span>티어리스트.</span></h1><div class="rule"></div><p>명작의 기준은 내 취향.<br>본 영화를 한 칸씩 정리해 보세요.</p><p>영화를 고르고 등급 버튼을 누르세요. 마우스로 끌어 놓아도 옮길 수 있어요.</p><button class="reset" id="reset" type="button">처음으로</button><p id="save" role="status">저장 상태 확인 중</p></header>
+<main><div class="topline"><h2>나의 영화 보드</h2><span class="count" id="count"></span></div>
+<form class="add-form" id="add-form"><div class="field"><label for="title">영화 제목</label><input id="title" name="title" placeholder="새로 본 영화가 있나요?" autocomplete="off" aria-describedby="input-help"></div><button type="submit">추가</button></form><p class="help" id="input-help">제목만으로 충분해요. 최대 80자, 같은 제목은 한 번만.</p>
+<section class="move" aria-label="선택한 영화 이동"><p id="selected">영화를 선택하면 등급을 옮길 수 있어요.</p><div class="actions" id="actions"></div></section>
+<p id="status" class="status" role="status" aria-live="polite"></p><div id="board"></div>
+<p class="footer-note">로그인도, 서버도 필요 없어요. 저장한 기록은 이 브라우저의 같은 파일에서만 유지됩니다. 파일을 옮기거나 브라우저 데이터를 지우면 기록이 달라질 수 있어요.</p></main>
+</div>
+<script>
+'use strict';
+const KEY='movie-tierlist-a-v1';
+const INITIAL=['기생충','인터스텔라','라라랜드','센과 치히로의 행방불명','어벤져스: 엔드게임','범죄도시','타이타닉','토이 스토리'];
+const TIERS=[['S','최고'],['A','좋음'],['B','보통'],['C','아쉬움'],['U','미분류']];
+const $=id=>document.getElementById(id);
+let selected=null,dragging=null;
+const initial=()=>INITIAL.map((title,i)=>({id:'initial-'+i,title,tier:'U'}));
+let movies=initial();
+function message(text){$('status').textContent=text;}
+function valid(data){return Array.isArray(data)&&data.length<=1000&&data.every(m=>m&&typeof m.id==='string'&&m.id.length>0&&typeof m.title==='string'&&m.title.trim().length>0&&m.title===m.title.trim()&&m.title.length<=80&&TIERS.some(([tier])=>m.tier===tier))&&new Set(data.map(m=>m.id)).size===data.length&&new Set(data.map(m=>m.title.toLocaleLowerCase('ko'))).size===data.length;}
+try{const stored=localStorage.getItem(KEY);if(stored!==null){const data=JSON.parse(stored);if(!valid(data))throw new Error('invalid');movies=data;}$('save').textContent='이 브라우저에 자동 저장';}catch(e){$('save').textContent='저장 자료를 읽지 못했어요. 기본 목록으로 시작합니다.';message('브라우저의 저장 권한을 확인해 주세요.');}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(movies));$('save').textContent='이 브라우저에 저장했어요';}catch(e){$('save').textContent='저장 실패 · 지금 변경은 다시 열면 사라질 수 있어요';}}
+function move(id,tier){const movie=movies.find(m=>m.id===id);if(!movie)return;movie.tier=tier;save();render();message(movie.title+' → '+(tier==='U'?'미분류':tier)+' 이동했어요.');}
+function render(){
+ const focused=document.activeElement?.dataset.movieId;
+ $('board').replaceChildren();$('actions').replaceChildren();
+ $('count').textContent=movies.length+'편 · '+movies.filter(m=>m.tier!=='U').length+'편 분류';
+ const current=movies.find(m=>m.id===selected);
+ $('selected').textContent=current?'선택한 영화: '+current.title:'영화를 선택하면 등급을 옮길 수 있어요.';
+ for(const [tier,label] of TIERS){const action=document.createElement('button');action.type='button';action.textContent=tier==='U'?'미분류':tier;action.setAttribute('aria-label',(tier==='U'?'미분류':tier)+'로 이동');action.disabled=!current||current.tier===tier;action.addEventListener('click',()=>{move(selected,tier);const card=[...document.querySelectorAll('.card')].find(el=>el.dataset.movieId===selected);card?.focus();});$('actions').append(action);
+ const row=document.createElement('section');row.className='tier';row.dataset.tier=tier;row.setAttribute('aria-label',(tier==='U'?'미분류':tier)+' 등급');
+ const heading=document.createElement('div');heading.className='tier-heading';const h=document.createElement('h3');h.textContent=tier==='U'?'미분류':tier;heading.append(h);if(tier!=='U'){const small=document.createElement('small');small.textContent=label;heading.append(small);}const cards=document.createElement('div');cards.className='cards';
+ const items=movies.filter(m=>m.tier===tier);
+ for(const movie of items){const card=document.createElement('button');card.type='button';card.className='card';card.textContent=movie.title;card.dataset.movieId=movie.id;card.draggable=true;card.setAttribute('aria-pressed',String(selected===movie.id));card.addEventListener('click',()=>{selected=selected===movie.id?null:movie.id;render();});card.addEventListener('dragstart',e=>{dragging=movie.id;e.dataTransfer.setData('text/plain',movie.id);e.dataTransfer.effectAllowed='move';});card.addEventListener('dragend',()=>{dragging=null;document.querySelectorAll('.drag-over').forEach(el=>el.classList.remove('drag-over'));});cards.append(card);}
+ if(!items.length){const empty=document.createElement('p');empty.className='empty';empty.textContent=tier==='U'?'모든 영화를 분류했어요.':'여기에 영화를 놓아 보세요.';cards.append(empty);}
+ row.addEventListener('dragover',e=>{if(dragging){e.preventDefault();row.classList.add('drag-over');}});row.addEventListener('dragleave',e=>{if(!row.contains(e.relatedTarget))row.classList.remove('drag-over');});row.addEventListener('drop',e=>{e.preventDefault();row.classList.remove('drag-over');if(dragging&&e.dataTransfer.getData('text/plain')===dragging){selected=dragging;move(dragging,tier);dragging=null;}});row.append(heading,cards);$('board').append(row);}
+ if(focused)[...document.querySelectorAll('.card')].find(el=>el.dataset.movieId===focused)?.focus();
+}
+$('add-form').addEventListener('submit',e=>{e.preventDefault();const title=$('title').value.trim();if(!title){message('영화 제목을 입력해 주세요.');$('title').focus();return;}if(title.length>80){message('영화 제목은 80자 이하로 입력해 주세요.');return;}if(movies.some(m=>m.title.toLocaleLowerCase('ko')===title.toLocaleLowerCase('ko'))){message('이미 있는 영화예요. 다른 제목을 입력해 주세요.');return;}if(movies.length>=1000){message('영화는 최대 1,000편까지 추가할 수 있어요.');return;}movies.push({id:crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random(),title,tier:'U'});save();render();$('title').value='';$('title').focus();message(title+' 추가했어요.');});
+$('reset').addEventListener('click',()=>{if(!confirm('추가한 영화와 등급 배치를 지우고 처음 8개로 돌아갈까요?'))return;movies=initial();selected=null;save();render();message('처음 8개 영화를 미분류로 돌렸어요.');});
+render();
+</script>
+</body></html>

@@ -1,0 +1,12 @@
+[
+  {
+    "antipattern": "cream-palette",
+    "name": "Cream / beige palette",
+    "description": "A warm cream or beige page background has become the default \"tasteful\" AI surface, reached for by reflex. Choose a background that comes from a deliberate palette, not the safe warm off-white.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "/Users/chawj/Documents/코디세이/영화_A_초안.html",
+    "line": 0,
+    "snippet": "cream/beige page background rgb(245, 242, 235)"
+  }
+]

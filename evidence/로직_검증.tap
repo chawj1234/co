@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: 단일 HTML: 한국어·외부 자원 없음·JavaScript 구문 유효
+ok 1 - 단일 HTML: 한국어·외부 자원 없음·JavaScript 구문 유효
+  ---
+  duration_ms: 0.579792
+  type: 'test'
+  ...
+# Subtest: 첫 실행 8편 미분류
+ok 2 - 첫 실행 8편 미분류
+  ---
+  duration_ms: 1.001125
+  type: 'test'
+  ...
+# Subtest: 클릭 선택 후 S 이동과 중복 방지
+ok 3 - 클릭 선택 후 S 이동과 중복 방지
+  ---
+  duration_ms: 0.555666
+  type: 'test'
+  ...
+# Subtest: 드래그 앤 드롭 이동
+ok 4 - 드래그 앤 드롭 이동
+  ---
+  duration_ms: 0.333167
+  type: 'test'
+  ...
+# Subtest: 제목 추가·공백 제거·빈 제목·중복·길이 제한
+ok 5 - 제목 추가·공백 제거·빈 제목·중복·길이 제한
+  ---
+  duration_ms: 0.435542
+  type: 'test'
+  ...
+# Subtest: 같은 저장 자료로 재실행하면 영화·배치 유지
+ok 6 - 같은 저장 자료로 재실행하면 영화·배치 유지
+  ---
+  duration_ms: 0.9205
+  type: 'test'
+  ...
+# Subtest: 초기화 취소와 확인
+ok 7 - 초기화 취소와 확인
+  ---
+  duration_ms: 0.33325
+  type: 'test'
+  ...
+# Subtest: 저장소 차단 시 변경은 되며 실패 안내
+ok 8 - 저장소 차단 시 변경은 되며 실패 안내
+  ---
+  duration_ms: 0.282542
+  type: 'test'
+  ...
+# Subtest: 손상된 JSON·잘못된 등급·중복 id 복구
+ok 9 - 손상된 JSON·잘못된 등급·중복 id 복구
+  ---
+  duration_ms: 0.856333
+  type: 'test'
+  ...
+# Subtest: HTML 문자열은 textContent로 표시
+ok 10 - HTML 문자열은 textContent로 표시
+  ---
+  duration_ms: 0.686084
+  type: 'test'
+  ...
+# Subtest: 임의 외부 드롭은 무시
+ok 11 - 임의 외부 드롭은 무시
+  ---
+  duration_ms: 0.265959
+  type: 'test'
+  ...
+# Subtest: 선택 상태 aria-pressed와 현재 등급 이동 비활성화
+ok 12 - 선택 상태 aria-pressed와 현재 등급 이동 비활성화
+  ---
+  duration_ms: 0.255875
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 42.888166
