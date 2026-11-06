@@ -1,34 +1,18 @@
 {
-  "checkedAt": "2026-11-06T10:42:01.032984+00:00",
+  "checkedAt": "2026-11-06T10:43:44.330478+00:00",
   "repository": {
     "defaultBranchRef": {
       "name": "main"
     },
-    "url": "https://github.com/chawj1234/mission1-movie-tierlist",
-    "visibility": "PRIVATE"
+    "url": "https://github.com/chawj1234/co",
+    "visibility": "PUBLIC"
   },
-  "verifiedContentCommit": "d976ed11af8f1370495a57ee8f1bd3c3f7029ed5",
+  "verifiedContentCommit": "07551aae5c95bfef6e7e9d19ba0b12d4b79fdea1",
   "remoteMainMatches": true,
-  "files": [
-    {
-      "file": "영화_A_초안.html",
-      "sha256": "06b2751be3c4f0f7f27f11ad377b7db1b0e8374c80d5b968c3f9a67af3bf620f",
-      "remoteMatchesLocal": true
-    },
-    {
-      "file": "영화_B_초안.html",
-      "sha256": "a86304e9257ddde60294a272208f4cf06b18a0160d34d40554acf6a5b99838a3",
-      "remoteMatchesLocal": true
-    },
-    {
-      "file": "미션1_기록.md",
-      "sha256": "a388f36953a8b9eaa40d18898c913276798792d0a658d7c9cee263498a94a283",
-      "remoteMatchesLocal": true
-    },
-    {
-      "file": "README.md",
-      "sha256": "c6435903b151ba6fe9476ae894637b402f23cc3de1bd416b5096eee1bc85bb21",
-      "remoteMatchesLocal": true
-    }
+  "verifiedFiles": [
+    "영화_A_초안.html",
+    "영화_B_초안.html",
+    "README.md",
+    "미션1_기록.md"
   ]
 }
