@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-06T10:38:34.173Z",
+  "protocol": "file:",
+  "results": [
+    {
+      "test": "직접 파일 열기: 미분류 8편",
+      "result": "PASS"
+    },
+    {
+      "test": "클릭 S 이동: 중복 없음",
+      "result": "PASS"
+    },
+    {
+      "test": "드래그 A 이동",
+      "result": "PASS"
+    },
+    {
+      "test": "Enter로 제목 공백 제거 후 추가",
+      "result": "PASS"
+    },
+    {
+      "test": "공백·중복·80자 초과 거부",
+      "result": "PASS"
+    },
+    {
+      "test": "파일 닫고 다시 열기: 영화와 등급 유지",
+      "result": "PASS"
+    },
+    {
+      "test": "초기화 취소 유지 / 확인 시 8편 복원",
+      "result": "PASS"
+    },
+    {
+      "test": "키보드 선택과 이동",
+      "result": "PASS"
+    },
+    {
+      "test": "390px 넘침 없음·추가·이동",
+      "result": "PASS"
+    },
+    {
+      "test": "HTML 입력 실행 차단",
+      "result": "PASS"
+    },
+    {
+      "test": "손상된 저장 자료 복구",
+      "result": "PASS"
+    },
+    {
+      "test": "저장 차단 시 안내와 사용 가능",
+      "result": "PASS"
+    },
+    {
+      "test": "외부 요청·브라우저 오류 없음",
+      "result": "PASS"
+    }
+  ],
+  "errors": [],
+  "externalRequests": []
+}
